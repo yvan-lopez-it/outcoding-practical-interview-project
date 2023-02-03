@@ -1,5 +1,11 @@
 # Code explanation
 
+Project 02
+
+Test cases
+
+## Project 04
+
 This code calculates the nth hexagonal number.
 
 It takes a single integer argument from the command line and returns the corresponding hexagonal number.
@@ -13,7 +19,7 @@ Here's a step-by-step breakdown of the code:
 5. Calculate the hexagonal number: The hexagonal number is calculated using the formula `n * (2 * n - 1)`. (cited source [https://en.wikipedia.org/wiki/Hexagonal_number](https://))
 6. The result is printed to the console, indicating the nth hexagonal number calculated.
 
-## Test cases
+### Test cases
 
 I wrote four tests to ensure that the `hexagonalNumber` method correctly calculates the nth hexagonal number for positive input, and correctly throws an exception for negative or zero input.
 

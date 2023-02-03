@@ -10,7 +10,7 @@ public class Project04_ {
     }
 
 
-    public static int hexagonalNumber(int n) {
+    public static int hexagonalNumber(int    n) {
         return n * (2 * n - 1);
     }
 }
