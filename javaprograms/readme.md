@@ -42,11 +42,11 @@ Here's a step-by-step breakdown of the code:
 
 To run this program, save the above code to a file named HexagonalNumber.java and compile it using the following command:
 
-`javac HexagonalNumber.java`
+`javac Project04_.java`
 
 Then, run the compiled program with an integer argument like this:
 
-`java HexagonalNumber 6`
+`java Project04_ 6`
 
 This will produce the following output:
 
