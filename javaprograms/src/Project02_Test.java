@@ -29,7 +29,7 @@ public class Project02_Test {
     }
 
     @Test
-    public void testIsPalindrome_withStringContainingNumbersAndSpecialCharacters_returnsTrue() {
+    public void testIsPalindrome_withStringContainingNumbersAndSpecialCharacters_returnsFalse() {
         String input = "A man, a plan, a canal: Panama";
         assertFalse(Project02_.isPalindrome(input));
     }
