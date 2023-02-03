@@ -40,7 +40,7 @@ Here's a step-by-step breakdown of the code:
 5. Calculate the hexagonal number: The hexagonal number is calculated using the formula `n * (2 * n - 1)`. (cited source [https://en.wikipedia.org/wiki/Hexagonal_number](https://))
 6. The result is printed to the console, indicating the nth hexagonal number calculated.
 
-To run this program, save the above code to a file named HexagonalNumber.java and compile it using the following command:
+To run this program with command line arguments, compile it using the following command:
 
 `javac Project04_.java`
 
@@ -50,4 +50,4 @@ Then, run the compiled program with an integer argument like this:
 
 This will produce the following output:
 
-`The 6th hexagonal number is: 91`
+`The 6th hexagonal number is: 66`
