@@ -1,4 +1,4 @@
-# Explanation of the code
+# Code explanation
 
 This code calculates the nth hexagonal number.
 
@@ -10,7 +10,7 @@ Here's a step-by-step breakdown of the code:
 2. The program expects a single argument to be passed, which represents the value of n for the calculation of the hexagonal number.
 3. If the number of arguments is not equal to 1, the program prints a message indicating that a single integer argument is required, and then exits.
 4. Parse the argument to an integer. The argument is converted from a string to an integer and stored in the n variable.
-5. Calculate the hexagonal number: The hexagonal number is calculated using the formula n * (2 * n - 1).
+5. Calculate the hexagonal number: The hexagonal number is calculated using the formula `n * (2 * n - 1)`. (cited source [https://en.wikipedia.org/wiki/Hexagonal_number](https://))
 6. The result is printed to the console, indicating the nth hexagonal number calculated.
 
 ## Test cases
