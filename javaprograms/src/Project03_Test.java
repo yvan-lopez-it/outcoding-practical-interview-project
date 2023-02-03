@@ -3,12 +3,12 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 public class Project03_Test {
     @Test
     public void combinationSum_Test1() {
-        int[] nums = {1, 2, 3, 4, 5};
+        int[] numbs = {1, 2, 3, 4, 5};
         int target = 10;
         List<List<Integer>> expectedResult = new ArrayList<>();
 
@@ -24,7 +24,7 @@ public class Project03_Test {
         combination2.add(5);
         expectedResult.add(combination2);
 
-        List<List<Integer>> result = Project03_.combinationSum(nums, target);
+        List<List<Integer>> result = Project03_.combinationSum(numbs, target);
         assertTrue(result.contains(combination1));
         assertTrue(result.contains(combination2));
     }
