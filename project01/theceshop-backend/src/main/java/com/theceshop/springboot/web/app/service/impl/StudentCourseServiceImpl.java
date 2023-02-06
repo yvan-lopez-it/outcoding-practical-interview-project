@@ -26,18 +26,44 @@ public class StudentCourseServiceImpl implements StudentCourseService {
 
 	@Override
 	public CourseProgressDto calculateStudentProgress(int studentId, int courseId) {
-		StudentCourse studentCourse = studentCourseRepository.findByStudentIdAndCourseId(studentId, courseId);
-
-		Course course = courseRepository.findById(courseId).orElse(null);
+		
 		Student student = studentRepository.findById(studentId).orElse(null);
-
+				if(student == null) {
+			return CourseProgressDto.builder()
+					.studentName("STUDENT_NOT_FOUND")
+					.courseName("")
+					.progress(-1.0)
+					.build();
+		}
+		
+		Course course = courseRepository.findById(courseId).orElse(null);
+		if(course == null) {
+			return CourseProgressDto.builder()
+					.studentName(student.getStudentName())
+					.courseName("COURSE_NOT_EXIST")
+					.progress(-2.0)
+					.build();
+		}
+		
+		StudentCourse studentCourse = studentCourseRepository.findByStudentIdAndCourseId(studentId, courseId);
+		if(studentCourse == null) {
+			return CourseProgressDto.builder()
+					.studentName(student.getStudentName())
+					.courseName("COURSE_NOT_FOUND")
+					.progress(-3.0)
+					.build();
+		}
+		
+		
 		int totalQuestions = course.getTotalQuestions();
 		int questionsAnswered = studentCourse.getQuestionsAnswered();
-
 		double studentProgress = (questionsAnswered * 100) / totalQuestions;
 
-		CourseProgressDto courseProgressDto = CourseProgressDto.builder().studentName(student.getStudentName())
-				.courseName(course.getCourseName()).progress(studentProgress).build();
+		CourseProgressDto courseProgressDto = CourseProgressDto.builder()
+				.studentName(student.getStudentName())
+				.courseName(course.getCourseName())
+				.progress(studentProgress)
+				.build();
 
 		return courseProgressDto;
 	}
