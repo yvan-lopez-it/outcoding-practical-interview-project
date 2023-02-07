@@ -1,11 +1,6 @@
 import {Component} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-
-export class CourseProgressDto {
-  studentName: string | undefined;
-  courseName: string | undefined;
-  progress: number | undefined;
-}
+import {CourseProgressDto} from "./dto/course-progress-dto";
+import {CourseProgressService} from "./service/app.service";
 
 @Component({
   selector: 'app-root',
@@ -16,11 +11,11 @@ export class AppComponent {
   studentId: number | undefined;
   courseId: number | undefined;
 
-  constructor(private http: HttpClient) {
+  constructor(private courseProgressService: CourseProgressService) {
   }
 
   getStudentProgress() {
-    this.http.get<CourseProgressDto>(`http://localhost:8080/api/progress/${this.studentId}/${this.courseId}`)
-      .subscribe(courseProgressDto => this.courseProgressDto = courseProgressDto);
+    this.courseProgressService.getStudentProgress(this.studentId, this.courseId)
+      .subscribe((courseProgressDto: CourseProgressDto | undefined) => this.courseProgressDto = courseProgressDto);
   }
 }
