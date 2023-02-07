@@ -14,7 +14,7 @@ public class DataSourceConfig {
     DataSource getDataSource() {
         return (DataSource) DataSourceBuilder.create()
           .driverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver")
-          .url("jdbc:sqlserver://localhost:1433;databaseName=master;encrypt=true;trustServerCertificate=true")
+          .url("jdbc:sqlserver://localhost:1433;databaseName=theceshopdb;encrypt=true;trustServerCertificate=true")
           .username("sa")
           .password("yourStrong(!)Password")
           .build();	
