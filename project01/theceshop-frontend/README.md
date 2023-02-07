@@ -1,27 +1,26 @@
-# TheceshopFrontend
+# Frontend: Let's see the data!
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.4.
+- The component has three properties: `courseProgressDto`, `studentId`, and `courseId`. `courseProgressDto` is the object that will hold the student's course progress information. 
+`studentId` and `courseId` are the parameters that will be used to identify the student and course in question.
 
-## Development server
+- In the constructor, the component creates an instance of the `CourseProgressService`, which is a service that provides the logic to retrieve the student's progress.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- The `getStudentProgress()` method is called when the user wants to retrieve the student's progress.
+- It calls the `getStudentProgress()` method of the `CourseProgressService`, passing in the `studentId` and courseId `properties` as parameters.
 
-## Code scaffolding
+- The result of the `getStudentProgress()` call is subscribed to and the returned `courseProgressDto` is assigned to the component's `courseProgressDto` property.
+- This updates the component's state and allows the updated progress information to be displayed in the HTML template.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## About the `getStudentProgress()` method:
+This method will get the student progress in a particular course. 
 
-## Build
+- The `getStudentProgress` function is a public function of the `courseProgressService` which is a class that implements the Angular service.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- The function takes in two optional parameters `studentId` and `courseId` with a default value of `0`. 
+It returns an `Observable` of type `CourseProgressDto` which is an interface that represents the data structure for the course progress.
 
-## Running unit tests
+- The function uses the `http.get` method from the `HttpClient` module provided by Angular to make a GET request to the API endpoint specified in the `environment.apiUrl` constant, 
+which is a URL pointing to the API service that returns the student's course progress information. 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- The URL is constructed by concatenating the API endpoint with the `studentId` and `courseId` parameters. 
+- The `http.get` method returns an observable of the expected data type, which is `CourseProgressDto` in this case.
