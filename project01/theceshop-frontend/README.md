@@ -24,3 +24,5 @@ which is a URL pointing to the API service that returns the student's course pro
 
 - The URL is constructed by concatenating the API endpoint with the `studentId` and `courseId` parameters. 
 - The `http.get` method returns an observable of the expected data type, which is `CourseProgressDto` in this case.
+
+![webapp](https://user-images.githubusercontent.com/96596558/217150065-e1093bd6-7d34-408c-91b1-989ac7cee8a3.jpg)
