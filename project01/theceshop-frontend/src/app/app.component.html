@@ -9,12 +9,20 @@
   </div>
   <button class="btn btn-primary" (click)="getStudentProgress()">Get Progress</button>
 </div>
-<div class="mt-3" *ngIf="courseProgressDto">
-  <div class="card">
-    <div class="card-body">
-      <p class="card-text">Student Name: {{ courseProgressDto.studentName }}</p>
-      <p class="card-text">Course Name: {{ courseProgressDto.courseName }}</p>
-      <p class="card-text">Progress: {{ courseProgressDto.progress }}%</p>
-    </div>
-  </div>
-</div>
+
+<table class="table mt-3" *ngIf="courseProgressDto">
+  <thead>
+  <tr>
+    <th scope="col">Student Name</th>
+    <th scope="col">Course Name</th>
+    <th scope="col" *ngIf="courseProgressDto.progress >= 0" >Progress</th>
+  </tr>
+  </thead>
+  <tbody >
+  <tr>
+    <td>{{ courseProgressDto.studentName }}</td>
+    <td>{{ courseProgressDto.courseName }}</td>
+    <td *ngIf="courseProgressDto.progress >= 0">{{ courseProgressDto.progress }}%</td>
+  </tr>
+  </tbody>
+</table>
