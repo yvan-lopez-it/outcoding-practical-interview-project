@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 
 export class CourseProgressDto {
@@ -8,24 +8,19 @@ export class CourseProgressDto {
 }
 
 @Component({
-  selector: 'app-course-progress',
-  template: `
-    <div *ngIf="courseProgressDto">
-      <p>Student Name: {{ courseProgressDto.studentName }}</p>
-      <p>Course Name: {{ courseProgressDto.courseName }}</p>
-      <p>Progress: {{ courseProgressDto.progress }}%</p>
-    </div>
-  `
+  selector: 'app-root',
+  templateUrl: './app.component.html'
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   courseProgressDto: CourseProgressDto | undefined;
+  studentId: number | undefined;
+  courseId: number | undefined;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
-  ngOnInit() {
-    const studentId = 1;
-    const courseId = 2;
-    this.http.get<CourseProgressDto>(`/api/progress/${studentId}/${courseId}`)
+  getStudentProgress() {
+    this.http.get<CourseProgressDto>(`http://localhost:8080/api/progress/${this.studentId}/${this.courseId}`)
       .subscribe(courseProgressDto => this.courseProgressDto = courseProgressDto);
   }
 }
